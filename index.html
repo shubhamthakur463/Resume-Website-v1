@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shubham Thakur - Mobile Automation Quality Engineer</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Ensure this script runs AFTER the Tailwind CDN script
+        tailwind.config = {
+            darkMode: 'class', // Enable dark mode based on the 'dark' class on the html element
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="font-inter antialiased">
+
+    <!-- ------------------------------------------------------------------------------- NAVIGATION BAR ---------------------------------------------------------------------------- -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-5">
+        <div class="container mx-auto px-10 flex justify-center items-center">
+            <!-- <a href="#home" class="text-xl font-medium hover:text-indigo-600 transition-colors duration-300 text-white dark:text-gray-100">
+                ST
+            </a> -->
+
+            <!-- Mobile topbar items -->
+            <div class="flex items-center space-x-4 md:hidden">
+                <!-- <button id="dark-mode-toggle-mobile" class="focus:outline-none text-white dark:text-gray-100">
+                    <i data-lucide="moon" class="dark:hidden" size="28"></i>
+                    <i data-lucide="sun" class="hidden dark:block" size="28"></i>
+                </button> -->
+                <button id="mobile-menu-button" class="focus:outline-none text-white dark:text-gray-100">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <ul class="hidden md:flex space-x-10 items-center p-4">
+                <!-- <li><a href="#home" class="text-lg font-medium hover:text-indigo-600 transition-colors duration-300 text-white dark:text-gray-100">Home</a></li> -->
+                <!-- <li><a href="#about" class="text-xl font-medium hover:text-blue-200 transition-colors duration-300 text-white dark:text-gray-100">About</a></li> -->
+                <!-- <li><a href="#skills" class="text-xl font-medium hover:text-blue-200 transition-colors duration-300 text-white dark:text-gray-100">Skills</a></li> -->
+                <!-- <li><a href="#experience" class="text-xl font-medium hover:text-blue-200 transition-colors duration-300 text-white dark:text-gray-100">Experience</a></li> -->
+                <!-- <li><a href="#projects" class="text-lg font-medium hover:text-indigo-600 transition-colors duration-300 text-white dark:text-gray-100">Projects</a></li> -->
+                <!-- <li><a href="#education" class="text-xl font-medium hover:text-blue-200 transition-colors duration-300 text-white dark:text-gray-100">Education</a></li> -->
+                <!-- <li><a href="#contact" class="text-xl font-medium hover:text-blue-200 transition-colors duration-300 text-white dark:text-gray-100">Contact</a></li> -->
+
+                <li><button class="transform hover:scale-110 duration-500"><a href="#about" class="text-xl font-medium transition-colors duration-500 text-white dark:text-gray-100">About</a></button></li>
+                <li><button class="transform hover:scale-110 duration-500"><a href="#skills" class="text-xl font-medium transition-colors duration-500 text-white dark:text-gray-100">Skills</a></button></li>
+                <li><button class="transform hover:scale-110 duration-500"><a href="#experience" class="text-xl font-medium transition-colors duration-500 text-white dark:text-gray-100">Experience</a></button></li>
+                <li><button class="transform hover:scale-110 duration-500"><a href="#projects" class="text-lg font-medium transition-colors duration-500 text-white dark:text-gray-100">Projects</a></button></li>
+                <li><button class="transform hover:scale-110 duration-500"><a href="#education" class="text-xl font-medium transition-colors duration-500 text-white dark:text-gray-100">Education</a></button></li>
+                <li><button class="transform hover:scale-110 duration-500"><a href="#contact" class="text-xl font-medium transition-colors duration-500 text-white dark:text-gray-100">Contact</a></button></li>
+                <!-- <li>
+                    <button id="dark-mode-toggle-desktop" class="focus:outline-none text-white dark:text-gray-100">
+                        <i data-lucide="moon" class="dark:hidden" size="24"></i>
+                        <i data-lucide="sun" class="hidden dark:block" size="24"></i>
+                    </button>
+                </li> -->
+            </ul>
+        </div>
+        <!-- Mobile Overlay Menu -->
+        <div id="mobile-menu-overlay" class="md:hidden hidden fixed top-0 left-0 w-full h-full bg-white bg-opacity-95 dark:bg-gray-900 dark:bg-opacity-95 flex flex-col items-center justify-center space-y-8 animate-fade-in">
+            <button id="close-mobile-menu-button" class="absolute top-5 justify-center text-gray-800 dark:text-gray-100 focus:outline-none">
+                <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <ul class="flex flex-col items-center space-y-6">
+                <li><a href="#home" class="text-2xl font-medium text-gray-800 hover:text-indigo-600 transition-colors duration-300 flex items-center dark:text-gray-100">
+                    <i data-lucide="home" class="mr-3" size="24"></i> Home</a></li>
+                <li><a href="#about" class="text-2xl font-medium text-gray-800 hover:text-indigo-600 transition-colors duration-300 flex items-center dark:text-gray-100">
+                    <i data-lucide="user" class="mr-3" size="24"></i> About</a></li>
+                <li><a href="#skills" class="text-2xl font-medium text-gray-800 hover:text-indigo-600 transition-colors duration-300 flex items-center dark:text-gray-100">
+                    <i data-lucide="code" class="mr-3" size="24"></i> Skills</a></li>
+                <li><a href="#experience" class="text-2xl font-medium text-gray-800 hover:text-indigo-600 transition-colors duration-300 flex items-center dark:text-gray-100">
+                    <i data-lucide="briefcase" class="mr-3" size="24"></i> Experience</a></li>
+                <li><a href="#education" class="text-2xl font-medium text-gray-800 hover:text-indigo-600 transition-colors duration-300 flex items-center dark:text-gray-100">
+                    <i data-lucide="graduation-cap" class="mr-3" size="24"></i> Education</a></li>
+                <li><a href="#contact" class="text-2xl font-medium text-gray-800 hover:text-indigo-600 transition-colors duration-300 flex items-center dark:text-gray-100">
+                    <i data-lucide="mail" class="mr-3" size="24"></i> Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- --------------------------------------------------------------------------------- NAVIGATION BAR ------------------------------------------------------------------------------ -->
+
+
+    <!-- ------------------------------------------------------------------------------- HOME/HERO SECTION ---------------------------------------------------------------------------- -->
+    <section id="home" class="relative h-screen flex items-center justify-center bg-gradient-to-r from-indigo-500 to-indigo-700 text-white dark:text-gray-100 overflow-hidden">
+        <div class="absolute inset-0 bg-pattern opacity-10"></div>
+
+        <div class="container mx-auto px-4 text-center z-10">
+            <img class="block mx-auto w-24 h-24 md:w-auto md:h-auto" src="resources/mf-avatar.svg">
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4 mt-4 animate-fade-in-up">
+                Shubham Thakur
+            </h1>
+            <p class="text-xl md:text-3xl mb-8 font-light animate-fade-in-up delay-200">
+                Mobile Automation Quality Engineer
+            </p>
+            <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto animate-fade-in-up delay-300">
+                Driving quality and efficiency through robust mobile test automation, ensuring flawless user experiences across platforms.
+            </p>
+            <div class="flex justify-center space-x-4 animate-fade-in-up delay-400">
+                <!-- <button onclick="scrollToSection('contact')" class="bg-white text-indigo-700 px-6 py-3 md:px-8 md:py-4 rounded-full text-lg font-semibold shadow-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300">
+                    Contact Me
+                </button> -->
+                <a href="#contact" rel="noopener noreferrer" class="bg-white text-indigo-700 px-6 py-3 md:px-8 md:py-4 rounded-full text-lg font-semibold shadow-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 flex items-center justify-center">
+                    <i data-lucide="smartphone" class="mr-2" size=""></i> Contact Me
+                </a>
+                <a href="resources/Resume.pdf" target="_blank" rel="noopener noreferrer" class="bg-transparent border-2 border-white text-white px-6 py-3 md:px-8 md:py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-indigo-700 transform hover:scale-105 transition-all duration-300 flex items-center justify-center">
+                    <i data-lucide="file-text" class="mr-2" size="20"></i> My Resume
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- ------------------------------------------------------------------------------- HOME/HERO SECTION ---------------------------------------------------------------------------- -->
+
+
+    <!-- ------------------------------------------------------------------------------- ABOUT SECTION ---------------------------------------------------------------------------- -->
+    <section id="about" class="py-20 md:py-32 bg-gray-50 dark:bg-gray-900">
+            <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+                <!-- <div class="md:w-1/2">
+                    <img
+                        src="https://placehold.co/600x400/E0E7FF/4338CA?text=Your+Professional+Photo"
+                        alt="John Doe Professional Photo"
+                        class="rounded-xl shadow-2xl w-full h-auto object-cover transform hover:scale-105 transition-transform duration-300"
+                        onerror="this.onerror=null;this.src='https://placehold.co/600x400/E0E7FF/4338CA?text=Placeholder+Image';"
+                    />
+                </div> -->
+                <div class="text-center md:text-center">
+                    <h2 class="text-4xl font-bold text-gray-800 dark:text-gray-100 mb-6 px-4">Hi, I'm Shubham. Nice to meet you.</h2>
+                    <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6 px-4">
+                        With over 3+ years of experience, I am a dedicated Mobile Automation Quality Engineer specializing in building robust, scalable, and efficient test automation frameworks for native iOS and Android applications. My expertise lies in ensuring high-quality mobile software releases through comprehensive automation strategies, continuous integration, and performance optimization.
+                    </p>
+                    <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6 px-4">
+                        My passion is to bridge the gap between development and quality assurance, implementing best practices that accelerate release cycles without compromising on product stability. I thrive in Agile environments, collaborating closely with cross-functional teams to deliver exceptional mobile experiences.
+                    </p>
+                </div>
+            </div>
+        </section>
+    <!-- ------------------------------------------------------------------------------- ABOUT SECTION ---------------------------------------------------------------------------- -->
+
+
+
+
+
+
+
+
+
+
+
+    <section id="skills" class="py-20 md:py-32 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold text-gray-800 dark:text-gray-100 mb-12">My Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-2xl font-semibold text-indigo-700 dark:text-indigo-400 mb-4">Programming Languages</h3>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium shadow-sm">Python</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium shadow-sm">Java</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium shadow-sm">Kotlin</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium shadow-sm">Swift</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium shadow-sm">JavaScript</span>
+                    </div>
+                </div>
+                <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-2xl font-semibold text-indigo-700 dark:text-indigo-400 mb-4">Mobile Automation Frameworks</h3>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium shadow-sm">Appium</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium shadow-sm">Espresso</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium shadow-sm">XCUITest</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium shadow-sm">Detox</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium shadow-sm">UI Automator</span>
+                    </div>
+                </div>
+                <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-2xl font-semibold text-indigo-700 dark:text-indigo-400 mb-4">Web Automation</h3>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium shadow-sm">Selenium WebDriver</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium shadow-sm">Playwright</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium shadow-sm">Cypress</span>
+                    </div>
+                </div>
+                <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-2xl font-semibold text-indigo-700 dark:text-indigo-400 mb-4">CI/CD & DevOps Tools</h3>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium shadow-sm">Jenkins</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium shadow-sm">GitLab CI</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium shadow-sm">Azure DevOps</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium shadow-sm">Bitrise</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium shadow-sm">Fastlane</span>
+                    </div>
+                </div>
+                <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-2xl font-semibold text-indigo-700 dark:text-indigo-400 mb-4">Cloud & Device Farms</h3>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium shadow-sm">Sauce Labs</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium shadow-sm">BrowserStack</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium shadow-sm">Firebase Test Lab</span>
+                    </div>
+                </div>
+                <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-2xl font-semibold text-indigo-700 dark:text-indigo-400 mb-4">API Testing</h3>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium shadow-sm">Postman</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium shadow-sm">Rest Assured</span>
+                    </div>
+                </div>
+                <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-2xl font-semibold text-indigo-700 dark:text-indigo-400 mb-4">Performance & Security</h3>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium shadow-sm">JMeter</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium shadow-sm">OWASP ZAP</span>
+                    </div>
+                </div>
+                <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-2xl font-semibold text-indigo-700 dark:text-indigo-400 mb-4">Methodologies & Version Control</h3>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium shadow-sm">Agile</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium shadow-sm">Scrum</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium shadow-sm">BDD</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium shadow-sm">TDD</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium">Git</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium">GitHub</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-4 py-2 rounded-full text-sm font-medium">GitLab</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-20 md:py-32 bg-gray-100 dark:bg-gray-900">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold text-gray-800 dark:text-gray-100 mb-12">Experience</h2>
+            <div class="grid grid-cols-1 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-indigo-600">
+                    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">Senior Mobile QA Automation Engineer</h3>
+                    <p class="text-indigo-600 dark:text-indigo-400 text-lg font-semibold mb-2">Innovatech Solutions</p>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Jan 2022 - Present</p>
+                    <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-2 mb-4">
+                        <li>Led the design and implementation of a scalable mobile test automation framework using Appium (Java) and Kotlin for Android, and XCUITest (Swift) for iOS.</li>
+                        <li>Integrated automated tests into CI/CD pipelines (Jenkins, Bitrise), reducing regression testing cycles by 60% and enabling daily releases.</li>
+                        <li>Mentored a team of 3 junior QA engineers on automation best practices, framework development, and mobile testing techniques.</li>
+                        <li>Developed custom reporting dashboards for automation results, providing real-time insights to stakeholders.</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200 px-3 py-1 rounded-full text-xs font-medium">Appium</span>
+                        <span class="bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200 px-3 py-1 rounded-full text-xs font-medium">Java</span>
+                        <span class="bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200 px-3 py-1 rounded-full text-xs font-medium">Kotlin</span>
+                        <span class="bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200 px-3 py-1 rounded-full text-xs font-medium">Swift</span>
+                        <span class="bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200 px-3 py-1 rounded-full text-xs font-medium">XCUITest</span>
+                        <span class="bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200 px-3 py-1 rounded-full text-xs font-medium">Jenkins</span>
+                        <span class="bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200 px-3 py-1 rounded-full text-xs font-medium">Bitrise</span>
+                        <span class="bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200 px-3 py-1 rounded-full text-xs font-medium">Jira</span>
+                        <span class="bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200 px-3 py-1 rounded-full text-xs font-medium">Git</span>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-indigo-600">
+                    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">Mobile QA Engineer</h3>
+                    <p class="text-indigo-600 dark:text-indigo-400 text-lg font-semibold mb-2">NextGen Apps Inc.</p>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Mar 2019 - Dec 2021</p>
+                    <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-2 mb-4">
+                        <li>Designed, developed, and executed automated test suites for native iOS and Android applications using Appium and Python.</li>
+                        <li>Collaborated with development teams to identify test gaps and improve overall software quality through early defect detection.</li>
+                        <li>Performed performance and security testing on mobile applications, identifying critical bottlenecks and vulnerabilities.</li>
+                        <li>Managed test cases and defects in Jira, ensuring clear communication and efficient bug resolution.</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200 px-3 py-1 rounded-full text-xs font-medium">Appium</span>
+                        <span class="bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200 px-3 py-1 rounded-full text-xs font-medium">Python</span>
+                        <span class="bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200 px-3 py-1 rounded-full text-xs font-medium">Selenium</span>
+                        <span class="bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200 px-3 py-1 rounded-full text-xs font-medium">Jira</span>
+                        <span class="bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200 px-3 py-1 rounded-full text-xs font-medium">Confluence</span>
+                        <span class="bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200 px-3 py-1 rounded-full text-xs font-medium">API Testing</span>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border-l-4 border-indigo-600">
+                    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">QA Engineer</h3>
+                    <p class="text-indigo-600 dark:text-indigo-400 text-lg font-semibold mb-2">WebWorks Digital</p>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Jul 2017 - Feb 2019</p>
+                    <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-2 mb-4">
+                        <li>Developed and maintained automated test scripts for web applications using Selenium WebDriver with Java.</li>
+                        <li>Executed functional, regression, and cross-browser compatibility testing.</li>
+                        <li>Participated in daily stand-ups and sprint planning sessions within an Agile/Scrum framework.</li>
+                        <li>Contributed to the improvement of QA processes and test strategies.</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200 px-3 py-1 rounded-full text-xs font-medium">Selenium WebDriver</span>
+                        <span class="bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200 px-3 py-1 rounded-full text-xs font-medium">Java</span>
+                        <span class="bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200 px-3 py-1 rounded-full text-xs font-medium">TestNG</span>
+                        <span class="bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200 px-3 py-1 rounded-full text-xs font-medium">Maven</span>
+                        <span class="bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200 px-3 py-1 rounded-full text-xs font-medium">Jira</span>
+                        <span class="bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200 px-3 py-1 rounded-full text-xs font-medium">Agile</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20 md:py-32 bg-gray-50 dark:bg-gray-900">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold text-gray-800 dark:text-gray-100 mb-12">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 group hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
+                    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-3">Cross-Platform Mobile Automation Framework</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Designed and developed a robust, data-driven test automation framework for both iOS and Android applications using Appium with Python, significantly reducing manual testing efforts.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-3 py-1 rounded-full text-sm font-medium">Appium</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-3 py-1 rounded-full text-sm font-medium">Python</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-3 py-1 rounded-full text-sm font-medium">Pytest</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-3 py-1 rounded-full text-sm font-medium">Allure Reports</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-3 py-1 rounded-full text-sm font-medium">Git</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-3 py-1 rounded-full text-sm font-medium">CI/CD</span>
+                    </div>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-indigo-600 dark:text-indigo-400 font-semibold hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors duration-200">
+                        View Project
+                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 group hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
+                    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-3">CI/CD Pipeline Integration for Mobile Releases</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Automated the entire mobile app release process, from build and test execution to deployment, using Jenkins, Fastlane, and Firebase Test Lab. Achieved continuous delivery.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-3 py-1 rounded-full text-sm font-medium">Jenkins</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-3 py-1 rounded-full text-sm font-medium">Fastlane</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-3 py-1 rounded-full text-sm font-medium">Firebase Test Lab</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-3 py-1 rounded-full text-sm font-medium">Shell Scripting</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-3 py-1 rounded-full text-sm font-medium">Gradle</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-3 py-1 rounded-full text-sm font-medium">Xcode</span>
+                    </div>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-indigo-600 dark:text-indigo-400 font-semibold hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors duration-200">
+                        View Project
+                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 group hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
+                    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-3">Mobile API Test Automation Suite</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Built an automated API testing suite for mobile backend services using Postman (Newman) and Rest Assured, ensuring data integrity and performance before UI testing.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-3 py-1 rounded-full text-sm font-medium">Postman</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-3 py-1 rounded-full text-sm font-medium">Newman</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-3 py-1 rounded-full text-sm font-medium">Rest Assured</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-3 py-1 rounded-full text-sm font-medium">Java</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-3 py-1 rounded-full text-sm font-medium">JSON</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-3 py-1 rounded-full text-sm font-medium">API Testing</span>
+                    </div>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-indigo-600 dark:text-indigo-400 font-semibold hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors duration-200">
+                        View Project
+                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 group hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
+                    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-3">Performance Testing for High-Traffic Mobile App</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Conducted comprehensive performance testing on a critical e-commerce mobile application using JMeter, identifying and resolving key bottlenecks to improve responsiveness under load.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-3 py-1 rounded-full text-sm font-medium">JMeter</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-3 py-1 rounded-full text-sm font-medium">BlazeMeter</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-3 py-1 rounded-full text-sm font-medium">Load Testing</span>
+                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 px-3 py-1 rounded-full text-sm font-medium">Performance Monitoring</span>
+                    </div>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-indigo-600 dark:text-indigo-400 font-semibold hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors duration-200">
+                        View Project
+                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="py-20 md:py-32 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold text-gray-800 dark:text-gray-100 mb-12">Education</h2>
+            <div class="max-w-2xl mx-auto bg-gray-50 dark:bg-gray-700 p-8 rounded-xl shadow-lg">
+                <h3 class="text-2xl font-bold text-indigo-700 dark:text-indigo-400 mb-2">Master of Science in Computer Science</h3>
+                <p class="text-xl text-gray-800 dark:text-gray-100 mb-1">University Name</p>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">Graduated: May 2017</p>
+                <p class="text-lg text-gray-700 dark:text-gray-300">
+                    Focused on Software Engineering and Quality Assurance, with coursework in Advanced Algorithms, Database Systems, and Software Testing Methodologies.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 md:py-32 bg-gray-100 dark:bg-gray-900">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold text-gray-800 dark:text-gray-100 mb-12">Get In Touch</h2>
+            <div class="max-w-2xl mx-auto bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                <p class="text-lg text-gray-700 dark:text-gray-300 mb-8">
+                    I'm always open to discussing new projects, collaborations, or opportunities. Feel free to reach out!
+                </p>
+                <form id="contact-form" class="space-y-6">
+                    <div>
+                        <label for="name" class="sr-only">Name</label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Your Name"
+                            required
+                            class="w-full px-5 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all duration-200 dark:bg-gray-700 dark:text-gray-100"
+                        />
+                    </div>
+                    <div>
+                        <label for="email" class="sr-only">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Your Email"
+                            required
+                            class="w-full px-5 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all duration-200 dark:bg-gray-700 dark:text-gray-100"
+                        />
+                    </div>
+                    <div>
+                        <label for="message" class="sr-only">Message</label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="6"
+                            placeholder="Your Message"
+                            required
+                            class="w-full px-5 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none resize-y transition-all duration-200 dark:bg-gray-700 dark:text-gray-100"
+                        ></textarea>
+                    </div>
+                    <button
+                        type="submit"
+                        class="w-full bg-indigo-600 text-white px-8 py-4 rounded-lg text-lg font-semibold shadow-md hover:bg-indigo-700 transform hover:scale-105 transition-all duration-300"
+                    >
+                        Send Message
+                    </button>
+                    <p id="form-status" class="mt-4 text-center"></p>
+                </form>
+                <div class="mt-8 text-lg text-gray-700 dark:text-gray-300">
+                    <p class="mb-2">Email: <a href="mailto:your.email@example.com" class="text-indigo-600 hover:underline dark:text-indigo-400 dark:hover:underline">your.email@example.com</a></p>
+                    <div class="flex justify-center space-x-6 mt-4">
+                        <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-indigo-600 transition-colors duration-200 dark:text-gray-400 dark:hover:text-indigo-300">
+                            <i data-lucide="linkedin" size="32"></i>
+                        </a>
+                        <a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-indigo-600 transition-colors duration-200 dark:text-gray-400 dark:hover:text-indigo-300">
+                            <i data-lucide="github" size="32"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 dark:bg-gray-950 text-white dark:text-gray-100 py-10">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors duration-200 dark:text-gray-500 dark:hover:text-gray-100">
+                    <i data-lucide="linkedin" size="28"></i>
+                </a>
+                <a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors duration-200 dark:text-gray-500 dark:hover:text-gray-100">
+                    <i data-lucide="github" size="28"></i>
+                </a>
+            </div>
+            <p class="text-gray-400 dark:text-gray-500 text-sm">&copy; <span id="current-year"></span> John Doe. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <button id="scroll-to-top-button" class="fixed bottom-8 right-8 bg-indigo-600 text-white p-4 rounded-full shadow-lg hover:bg-indigo-700 transition-all duration-300 z-50 transform hover:scale-110 hidden" aria-label="Scroll to top">
+        <i data-lucide="chevron-up" size="24"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
